@@ -1,0 +1,41 @@
+
+<%= form_for(@user) do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :username %><br>
+    <%= f.text_field :username %>
+  </div>
+  <div class = "row">
+    <div class = "col-md-4">
+      <%= f.label :query %>
+      <div class = "input-group">
+        <%= f.text_field :query, :id => "query", :class => "query form-control input-sm",:maxlength => "15"%>
+        <span class="input-group-btn">
+          <button type = "button" id= "ajax-button" class = " btn btn-sm btn-primary" > Search </button>
+        </span>
+      </div>
+        <ul class= "result">
+    </ul>
+
+    </div>
+    <div class = "col-md-4">
+    <%= f.label :competitor, "Competitors" %>
+    <%= f.text_area :competitor, :class => "competitor form-control input-sm", :size => "15x20"%>
+    </div>
+  </div>
+  </br>
+  <div class="actions">
+    <%= f.submit 'SUBMIT',:class => "btn btn-primary", :id =>"submit" %>
+  </div>
+<% end %>

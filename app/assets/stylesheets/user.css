@@ -1,0 +1,17 @@
+.inline {
+	display: inline;
+}
+
+.competitor {
+	resize: none;
+}
+
+body{
+    margin: auto;
+    width: 60%;
+}
+
+.buttons {
+	text-align: right;
+	padding-right: 10%;
+}

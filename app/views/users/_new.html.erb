@@ -1,0 +1,15 @@
+<%= form_for User.new, :html => {:id => "accountform"} do |f| %>
+	<%= f.text_field :username, :id => "username", :class => "username form-control input-sm",:maxlength => "15"%>
+
+	<div class = "input-group">
+	
+      <%= f.text_field :query, :id => "query", :class => "username form-control input-sm",:maxlength => "15"%>
+      <span class="input-group-btn">
+        <button type = "button" class = "ajax-button btn btn-sm btn-primary" > Search </button>
+      </span>
+    </div>
+
+    <%= f.text_area :competitor, :class => "username form-control input-sm",:maxlength => "15"%>
+	</br>
+	<%= f.submit 'SUBMIT', :class => "btn btn-primary", :id =>"submit" %>
+<% end %>
