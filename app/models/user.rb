@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
 	has_many :competitors
 	def twitter
-		@client ||= Twitter::REST::Client.new do |config|
+		Twitter::REST::Client.new do |config|
 			config.consumer_key        = Rails.application.secrets.twitter_api_key
 			config.consumer_secret     = Rails.application.secrets.twitter_api_secret
 			config.access_token        = "3255900630-LCdKMHe0z222gDuKgkurHI6kdQxrhCz5y5P66Bq"
@@ -14,15 +14,23 @@ class User < ActiveRecord::Base
 	end	
 
 	def self.to_csv
-    attributes = %w{account competitors}
+	    attributes = %w{account competitors}
 
-    CSV.generate(headers: true) do |csv|
-      csv << attributes
+	    CSV.generate(headers: true) do |csv|
+	    	csv << attributes
 
-      all.each do |account|
-        csv << [account.username, account.competitor]
-      end
-    end
-  end
+	     	all.each do |account|
+	        	csv << [account.username, account.competitor]
+	     	end
+	    end
+	 end
+
+	def self.search_users(search)
+	  if search
+	    where('username LIKE ?', "%#{search}%")
+	  else
+	    all
+	  end
+	end
 
 end

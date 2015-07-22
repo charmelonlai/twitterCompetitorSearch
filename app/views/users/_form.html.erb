@@ -21,15 +21,15 @@
       <div class = "input-group">
         <%= f.text_field :query, :id => "query", :class => "query form-control input-sm", :placeholder => "Query"%>
         <span class="input-group-btn">
-          <button type = "button" id= "ajax-button" class = " btn btn-sm btn-primary" > Search </button>
+          <button type = "button" id= "search-button" class = " btn btn-sm btn-primary" > Search </button>
         </span>
       </div>
-        <ul class= "result">
-    </ul>
+      <div class= "list-group" id = "result">
+      </div>
 
     </div>
     <div class = "col-md-6">
-    <%= f.text_area :competitor, :class => "competitor form-control input-sm", :size => "15x20", :placeholder => "Competitors"%>
+    <%= f.text_area :competitor, :id => "competitor", :class => "competitor form-control input-sm", :size => "15x20", :placeholder => "Competitors"%>
     </div>
   </div>
   </br>

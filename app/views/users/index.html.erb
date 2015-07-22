@@ -1,4 +1,14 @@
 <body>
+<div class = "col-md-3 col-md-offset-8">
+<%= form_tag users_path, :method => 'get', :id => "users_search" do %>
+	<div class="row input-group">
+    <%= text_field_tag :search, params[:search], :class => "form-control input-sm" %>
+     <div class="input-group-btn">
+    <%= submit_tag "Search", :name => nil, :class => "btn btn-sm" %>
+    </div>
+    </div>
+<% end %>
+</div>
 <table class= "table table-striped" id = "account-table">
 	<thead>
 		<% if @users %>
@@ -15,7 +25,11 @@
 		<% @users.each do |user| %>
 		<tr>
 		<td><%= user.username %></td>
-		<td><%= user.competitor %> </td>
+		<td>
+			<% user.competitor.split.each do |acc| %>
+				<%= link_to acc, "https://www.twitter.com/"+acc, :target => "_blank" %>
+			<% end %>
+				</td>
 		<td><%= user.competitor_count(user)%></td>
 		<td></td>
 		<td><%= link_to 'Edit', edit_user_path(user), :class => "btn btn-xs btn-default" %></td>
@@ -24,10 +38,8 @@
 		<% end %>
 	</tbody>
 </table>
-<%= link_to '+', new_user_path, :class => "btn btn-sm btn-success", remote: true %>
-<div class = "buttons">
-  <%= link_to 'Export To CSV', users_path(format: :csv),:class => "btn btn-sm btn-success"  %>
-</div>
+	<%= link_to '+', new_user_path, :class => "btn btn-sm btn-success", :id => "newbtn", remote: true %>
+  <%= link_to 'Export To CSV', users_path(format: :csv),:class => "btn btn-sm btn-success", :id => "csvbtn"  %>
 </body>
-
+<br>
 <div id="user-form" style="display:none;"></div>

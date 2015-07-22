@@ -11,7 +11,24 @@ body{
     width: 60%;
 }
 
-.buttons {
+#csvbtn {
 	text-align: right;
-	padding-right: 10%;
+}
+
+ul {
+list-style-type: none;
+}
+
+.list-group-item {
+	padding: 5px !important;
+}
+
+
+.unselectable {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
