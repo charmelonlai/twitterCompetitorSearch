@@ -11,16 +11,15 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :username %><br>
-    <%= f.text_field :username %>
+  <div class = "row">  
+  <div class="col-md-4">
+    <%= f.text_field :username, :class => "form-control input-sm", :placeholder => "Account" %>
+  </div>
   </div>
   <div class = "row">
-    <div class = "col-md-4">
-      <%= f.label :query %>
+    <div class = "col-md-6">
       <div class = "input-group">
-        <%= f.text_field :query, :id => "query", :class => "query form-control input-sm",:maxlength => "15"%>
+        <%= f.text_field :query, :id => "query", :class => "query form-control input-sm", :placeholder => "Query"%>
         <span class="input-group-btn">
           <button type = "button" id= "ajax-button" class = " btn btn-sm btn-primary" > Search </button>
         </span>
@@ -29,9 +28,8 @@
     </ul>
 
     </div>
-    <div class = "col-md-4">
-    <%= f.label :competitor, "Competitors" %>
-    <%= f.text_area :competitor, :class => "competitor form-control input-sm", :size => "15x20"%>
+    <div class = "col-md-6">
+    <%= f.text_area :competitor, :class => "competitor form-control input-sm", :size => "15x20", :placeholder => "Competitors"%>
     </div>
   </div>
   </br>

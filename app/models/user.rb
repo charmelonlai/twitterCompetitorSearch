@@ -10,6 +10,19 @@ class User < ActiveRecord::Base
 	end
 
 	def competitor_count(params)
-		params[:competitor].try(:split, ",").try(:count) - 1
+		params[:competitor].try(:split, " ").try(:count) 
 	end	
+
+	def self.to_csv
+    attributes = %w{account competitors}
+
+    CSV.generate(headers: true) do |csv|
+      csv << attributes
+
+      all.each do |account|
+        csv << [account.username, account.competitor]
+      end
+    end
+  end
+
 end

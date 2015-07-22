@@ -5,6 +5,7 @@
 		<tr>
 			<th>Account</th>
 			<th>Competitors</th>
+			<th></th>
 			<th colspan="3"></th>
 		</tr>
 		<% end %>
@@ -14,6 +15,7 @@
 		<% @users.each do |user| %>
 		<tr>
 		<td><%= user.username %></td>
+		<td><%= user.competitor %> </td>
 		<td><%= user.competitor_count(user)%></td>
 		<td></td>
 		<td><%= link_to 'Edit', edit_user_path(user), :class => "btn btn-xs btn-default" %></td>
@@ -24,7 +26,7 @@
 </table>
 <%= link_to '+', new_user_path, :class => "btn btn-sm btn-success", remote: true %>
 <div class = "buttons">
-  <%= link_to 'Export To CSV', accounts_path(format: :csv),:class => "btn btn-sm btn-success"  %>
+  <%= link_to 'Export To CSV', users_path(format: :csv),:class => "btn btn-sm btn-success"  %>
 </div>
 </body>
 

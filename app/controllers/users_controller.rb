@@ -11,6 +11,7 @@ class UsersController < ApplicationController
     respond_to do |format|
       format.html
       format.json
+      format.csv { send_data @users.to_csv, filename: "competitors-#{Date.today}.csv" }
     end
   end
 
