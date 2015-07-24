@@ -1,5 +1,10 @@
-class User < ActiveRecord::Base
-	has_many :competitors
+class User 
+	include Mongoid::Document
+	field :username,      type: String
+	field :search,        type: String
+	field :competitor,    type: String
+	field :query,         type: String
+
 	def twitter
 		Twitter::REST::Client.new do |config|
 			config.consumer_key        = Rails.application.secrets.twitter_api_key
